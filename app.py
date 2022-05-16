@@ -5,7 +5,7 @@ import object_classifier
 app = Flask(__name__)
 
 @app.route('/', methods = ['GET', 'POST'])
-def detect_object():
+def classify_object():
     if request.method == 'GET':
        return render_template('index.html')
     if request.method == 'POST':
