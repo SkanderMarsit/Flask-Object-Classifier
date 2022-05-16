@@ -14,12 +14,11 @@ def classify_object():
             return
         file = request.files['file']
         image = file.read()
-        predicted_class, confidence = object_classifier.get_predictions(image)
+        predicted_class, confidence = object_classifier.get_prediction(image)
         filename = file.filename
-        predicted = '1. %s, %.4f'%(predicted_class, confidence)
+        predicted = 'Predicted class: %s, confidence: %.4f'%(predicted_class, confidence)
            
-
         return render_template('result.html', output=predicted, image=filename)
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run()

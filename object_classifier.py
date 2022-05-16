@@ -20,7 +20,7 @@ def transform_image(image_bytes):
     image = Image.open(io.BytesIO(image_bytes))
     return my_transforms(image).unsqueeze(0)
 
-def get_predictions(image_bytes):
+def get_prediction(image_bytes):
     tensor = transform_image(image_bytes=image_bytes)
 
     outputs = model.forward(tensor)
